@@ -1,7 +1,7 @@
 <?php
 
-use Source\Controllers\Web;
 use Slim\Factory\AppFactory;
+use Source\http\Controllers\Web;
 
 require_once(dirname(__DIR__) . '/vendor/autoload.php');
 
