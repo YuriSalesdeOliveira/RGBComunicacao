@@ -1,0 +1,22 @@
+version: "3"
+services:
+  php:
+    container_name: php_rgb
+    build: ./
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/var/www/html
+    links:
+      - db
+    working_dir: /var/www/html/public
+      
+  db:
+    image: mysql:latest
+    container_name: mysql_rgb
+    ports:
+      - "3306:3306"
+    volumes:
+      - /var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
