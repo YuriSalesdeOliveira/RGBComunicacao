@@ -11,20 +11,26 @@
         }
     ],
     "config": {
-        "vendor-dir": "vendor"
+        "vendor-dir": "vendor",
+        "allow-plugins": {
+            "kylekatarnls/update-helper": true
+        }
     },
     "autoload": {
         "psr-4": {
             "Source\\": "source/"
         },
         "files": [
-            "source/config/app.php"
+            "source/config/app.php",
+            "source/config/dependencies.php"
         ]
     },
     "require": {
         "php": ">=7.2",
         "slim/slim": "^4.9",
         "twig/twig": "^3.3",
-        "laminas/laminas-diactoros": "^2.8"
+        "illuminate/database": "v8.82.0",
+        "laminas/laminas-diactoros": "^2.8",
+        "robmorgan/phinx": "^0.12.10"
     }
 }

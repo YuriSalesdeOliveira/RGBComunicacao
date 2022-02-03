@@ -1,3 +1,4 @@
 source/config/app.php
+source/config/dataBase.php
 source/cache
 /vendor

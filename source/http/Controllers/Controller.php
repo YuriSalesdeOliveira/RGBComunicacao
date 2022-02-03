@@ -2,7 +2,7 @@
 
 namespace Source\http\Controllers;
 
-abstract class Controllers
+abstract class Controller
 {
     protected $twig;
 
@@ -11,6 +11,7 @@ abstract class Controllers
         $loader = new \Twig\Loader\FilesystemLoader(PATH['views']);
         $this->twig = new \Twig\Environment($loader, [
             'cache' => PATH['cache'],
+            'debug' => true
         ]);
     }
 }
