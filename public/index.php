@@ -10,6 +10,6 @@ $app = AppFactory::create();
 $app->setBasePath('/public');
 
 $app->get('/', [Web::class, 'home'])->setName('web.home');
-$app->get('/{page}', [Web::class, 'home'])->setName('web.home');
+$app->get('/{page}', [Web::class, 'home'])->setName('web.home.arg');
 
 $app->run();

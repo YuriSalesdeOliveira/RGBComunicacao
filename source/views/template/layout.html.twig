@@ -18,13 +18,11 @@
                 <span>00</span>0000-0000
             </div>
             <nav class="main_header_nav">
-                <a href="#" class="main_header_nav_item">Página 1</a>
-                <a href="#" class="main_header_nav_item">Página 2</a>
-                <a href="#" class="main_header_nav_item">Página 3</a>
-                <a href="#" class="main_header_nav_item">Página 4</a>
-                <a href="#" class="main_header_nav_item">Página 5</a>
-                <a href="#" class="main_header_nav_item">Página 6</a>
-                <a href="#" class="main_header_nav_item">Página 7</a>
+                {% for page, details in pages_controls %}
+                    <a href="{{ route.urlFor('web.home.arg', {'page': details['page']}) }}"
+                        class="main_header_nav_item" {{ details['current'] ? 'highlight' : null }}>{{ page }}</a>
+                {% endfor %}
+                
             </nav>
         </div>
     </header>

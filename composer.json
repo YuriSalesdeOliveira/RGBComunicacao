@@ -22,7 +22,6 @@
         },
         "files": [
             "source/config/app.php",
-            "source/config/helpers.php",
             "source/config/dependencies.php"
         ]
     },

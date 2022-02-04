@@ -14,6 +14,18 @@ class PostSeeder extends AbstractSeed
             ]
         ];
 
+        $index = 1;
+
+        while ($index < 60)
+        {
+            $data[] = [
+                'photo' => '',
+                'description' => ''
+            ];
+
+            $index++;
+        }
+
         $users = $this->table('posts');
         $users->insert($data)->saveData();
     }

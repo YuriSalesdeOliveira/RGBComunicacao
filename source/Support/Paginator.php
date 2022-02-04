@@ -36,4 +36,19 @@ class Paginator
     {
         return $this->limit * ($this->current_page - 1);
     }
+
+    public function pagesControls()
+    {
+        $pages = [];
+
+        for ($i = 1; $i <= $this->pages; $i++)
+        {
+            $pages["Página{$i}"] = [
+                'page' => $i,
+                'current' => $i == $this->current_page
+            ];
+        }
+
+        return $pages;
+    }
 }

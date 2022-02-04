@@ -4,6 +4,7 @@ namespace Source\http\Controllers;
 
 use Source\Models\Post;
 use Source\Support\Paginator;
+use Slim\Routing\RouteContext;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
@@ -19,7 +20,18 @@ class Web extends Controller
         
         $posts = Post::skip($paginator->offset())->take($paginator->limit())->get();
 
-        $content = $this->twig->render('home.html.twig');
+        foreach ($posts as $post)
+        {
+            echo $post->id . '<br>';
+        }
+
+        $routeContext = RouteContext::fromRequest($request);
+        $routeParser = $routeContext->getRouteParser();
+
+        $content = $this->twig->render('home.html.twig', [
+            'pages_controls' => $paginator->pagesControls(),
+            'route' => $routeParser
+        ]);
 
         $body = $response->getBody();
         $body->write($content);
