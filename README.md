@@ -17,6 +17,9 @@ docker-compose up -d
 docker-compose exec php composer install
 ```
 - Crie a pasta cache dentro da pasta source
+```bash
+mkdir source/cache
+```
 - Crie o arquivo "app.php" no diretório config usando o arquivo exemplo "app.sample.php"
 - Crie a base de dados com o nome 'rgb_comunicacao'
 ```bash
