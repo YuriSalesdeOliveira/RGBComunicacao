@@ -14,7 +14,7 @@ docker-compose up -d
 ```
 - Instale as dependências
 ```bash
-docker-composer exec php composer install
+docker-compose exec php composer install
 ```
 - Crie a pasta cache dentro da pasta source
 - Crie o arquivo "app.php" no diretório config usando o arquivo exemplo "app.sample.php"
