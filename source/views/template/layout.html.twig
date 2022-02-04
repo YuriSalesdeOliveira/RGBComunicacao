@@ -17,13 +17,18 @@
                 <img src="{{ helper.assets('images/phone.png') }}" alt="phone icon">
                 <span>00</span>0000-0000
             </div>
+
             <nav class="main_header_nav">
+                <a href="javascript:" id="hide_menu">x</a>
                 {% for details in pages_details %}
                     <a href="{{ route.urlFor('web.home.arg', {'page': details['page']}) }}"
                         class="main_header_nav_item" {{ details['current'] ? 'highlight' : null }}>Página <span>{{ details['page'] }}</span></a>
                 {% endfor %}
-                
             </nav>
+            
+            <a href="javascript:" id="show_menu">
+                <img src="{{ helper.assets('images/outline_menu_black_24dp.png') }}" alt="">
+            </a>
         </div>
     </header>
 
@@ -38,7 +43,8 @@
         </div>
 
         <div class="main_footer_logo">
-            Linha Fast | <img src="{{ helper.assets('images/logo-small.png') }}" alt="logo">
+            <span>Linha Fast</span>
+            <img src="{{ helper.assets('images/logo-small.png') }}" alt="logo">
         </div>
 
     </footer>
