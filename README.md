@@ -10,7 +10,7 @@ Esse projeto é minha solução para o teste técnico da empresa RGB Comunicaç�
 
 - Suba as imagens docker
 ```bash
-docker-composer up -d
+docker-compose up -d
 ```
 - Instale as dependências
 ```bash
