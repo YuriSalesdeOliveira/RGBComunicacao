@@ -4,7 +4,4 @@ namespace Source\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
-{
-    protected $table = 'Posts';
-}
+class Post extends Model {}
