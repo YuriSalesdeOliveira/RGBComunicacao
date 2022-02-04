@@ -9,6 +9,7 @@ Esse projeto é minha solução para o teste técnico da empresa RGB Comunicaç�
 ### Como usar
 
 - Suba as imagens docker
+- Rode o comando install do composer
 - Crie a pasta cache dentro da pasta source
 - Crie o arquivo "app.php" no diretório config usando o arquivo exemplo "app.sample.php"
 - Rode as migrations com o comando abaixo
