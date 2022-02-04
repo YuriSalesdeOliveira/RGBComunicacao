@@ -9,7 +9,6 @@ services:
       - ./:/var/www/html
     links:
       - db
-    working_dir: /var/www/html/public
       
   db:
     image: mysql:latest
