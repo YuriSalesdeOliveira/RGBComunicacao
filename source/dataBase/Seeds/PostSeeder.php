@@ -1,29 +1,26 @@
 <?php
 
 
+use Source\Support\Helper;
 use Phinx\Seed\AbstractSeed;
 
 class PostSeeder extends AbstractSeed
 {
     public function run()
     {
-        $data = [
-            [
-                'photo' => '',
-                'description' => '',
-            ]
-        ];
+        $data = [];
 
-        $index = 1;
+        $images_list = (new Helper)->listFiles(PATH['storage'] . '/images');
 
-        while ($index < 60)
+        foreach ($images_list as $image)
         {
-            $data[] = [
-                'photo' => '',
-                'description' => ''
-            ];
-
-            $index++;
+            if ((new Helper)->isImage(PATH['storage'] . '/images', $image))
+            {
+                array_push($data, [
+                    'photo' => $image,
+                    'description' => 'Nome do Álbum Lorem Ipsum Dolor Amed'
+                ]);
+            }
         }
 
         $users = $this->table('posts');

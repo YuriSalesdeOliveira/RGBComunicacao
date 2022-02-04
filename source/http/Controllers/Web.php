@@ -20,15 +20,11 @@ class Web extends Controller
         
         $posts = Post::skip($paginator->offset())->take($paginator->limit())->get();
 
-        foreach ($posts as $post)
-        {
-            echo $post->id . '<br>';
-        }
-
         $routeContext = RouteContext::fromRequest($request);
         $routeParser = $routeContext->getRouteParser();
 
         $content = $this->twig->render('home.html.twig', [
+            'posts' => $posts,
             'pages_controls' => $paginator->pagesControls(),
             'route' => $routeParser
         ]);

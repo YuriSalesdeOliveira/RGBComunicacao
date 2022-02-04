@@ -2,6 +2,20 @@
 
 {% block content %}
 
+<div class="posts">
+
+    {% for post in posts %}
+        <figure class="posts_item">
+            <div>
+                <img src="{{ helper.storage("images/#{post.photo}") }}" alt="image post item">
+            </div>
+            <figcaption>{{ post.description }}</figcaption>
+        </figure>
+
+    {% endfor %}
+    
+</div>
+
 
 <div class="presentation">
         
