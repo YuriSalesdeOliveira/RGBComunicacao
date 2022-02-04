@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/54549125/152555128-7976e745-f464-445e-a134-e24ab4f59880.gif" width="500"/> 
+</p>
+
 # RGBComunicacao
 
 Esse projeto é minha solução para o teste técnico da empresa RGB Comunicação.
