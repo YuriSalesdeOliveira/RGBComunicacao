@@ -18,9 +18,9 @@
                 <span>00</span>0000-0000
             </div>
             <nav class="main_header_nav">
-                {% for page, details in pages_controls %}
+                {% for details in pages_details %}
                     <a href="{{ route.urlFor('web.home.arg', {'page': details['page']}) }}"
-                        class="main_header_nav_item" {{ details['current'] ? 'highlight' : null }}>{{ page }}</a>
+                        class="main_header_nav_item" {{ details['current'] ? 'highlight' : null }}>Página <span>{{ details['page'] }}</span></a>
                 {% endfor %}
                 
             </nav>

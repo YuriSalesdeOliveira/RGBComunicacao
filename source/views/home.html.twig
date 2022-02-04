@@ -17,26 +17,28 @@
 </div>
 
 
-<div class="presentation">
-        
-    <div class="presentation_me">
-        <img src="{{ helper.assets('images/photographer.png') }}" alt="">
-        <div>
-            <h3>Pessoa ou Empresa</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere facilis soluta vel tempore repudiandae.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, optio? Non debitis quo, molestias voluptas provident quod quae tempore. Unde ex odit quod iure natus harum.</p>
+{% if current_page == 1 %}
+    <div class="presentation">
+            
+        <div class="presentation_me">
+            <img src="{{ helper.assets('images/photographer.png') }}" alt="">
+            <div>
+                <h3>Pessoa ou Empresa</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere facilis soluta vel tempore repudiandae.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, optio? Non debitis quo, molestias voluptas provident quod quae tempore. Unde ex odit quod iure natus harum.</p>
+            </div>
         </div>
-    </div>
 
-    <div class="presentation_social">
-        <h3>Acesse Também:</h3>
-        <ul>
-            <li><img src="{{ helper.assets('images/fb.png') }}" alt="facebook icon">www.fb.com/loremipsum</li>
-            <li><img src="{{ helper.assets('images/twitter.png') }}" alt="twitter icon">www.twitter.com/loremipsum</li>
-            <li><img src="{{ helper.assets('images/flickr.png') }}" alt="flickr icon">www.flickr.com/loremipsum</li>
-        </ul>
-    </div>
+        <div class="presentation_social">
+            <h3>Acesse Também:</h3>
+            <ul>
+                <li><img src="{{ helper.assets('images/fb.png') }}" alt="facebook icon">www.fb.com/loremipsum</li>
+                <li><img src="{{ helper.assets('images/twitter.png') }}" alt="twitter icon">www.twitter.com/loremipsum</li>
+                <li><img src="{{ helper.assets('images/flickr.png') }}" alt="flickr icon">www.flickr.com/loremipsum</li>
+            </ul>
+        </div>
 
-</div>
+    </div>
+{% endif %}
 
 {% endblock content %}

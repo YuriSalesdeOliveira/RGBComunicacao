@@ -1,7 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400&display=swap');
 
-body
-{
+html {
+    height: 100%;
+    min-height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
     background-image: url('../images/fabric_1.png');
     font-family: 'Roboto', sans-serif;
 }
@@ -71,8 +78,8 @@ main.main_content
 div.posts
 {
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(5, 170px);
     justify-content: space-between;
 }
 
@@ -84,6 +91,21 @@ div.posts figure.posts_item
     flex-direction: column;
     margin-bottom: 50px;
     border-bottom: 1px solid var(--primary-color);
+}
+
+div.posts figure.posts_item.modal
+{
+    cursor: default;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: rgba(0,0,0, .9);
 }
 
 div.posts figure.posts_item div
@@ -98,10 +120,22 @@ div.posts figure.posts_item div
     border-radius: 5px;
 }
 
+div.posts figure.posts_item.modal div
+{
+    width: auto;
+    height: auto;
+}
+
 div.posts figure.posts_item figcaption
 {
     margin-bottom: 10px;
     color: var(--dark-color-light-02);
+}
+
+div.posts figure.posts_item.modal figcaption
+{
+    margin: 0;
+    color: var(--light-color);
 }
 
 div.presentation
@@ -109,6 +143,7 @@ div.presentation
     width: 100%;
     display: flex;
     padding-top: 20px;
+    margin-bottom: 20px;
     color: var(--dark-color-light-01);
     border-top: 1px solid var(--primary-color);
 }
@@ -188,7 +223,7 @@ footer.main_footer
     width: var(--width);
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: auto;
     margin-left: auto;
     margin-right: auto;
     padding: 10px 0;

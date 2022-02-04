@@ -37,16 +37,16 @@ class Paginator
         return $this->limit * ($this->current_page - 1);
     }
 
-    public function pagesControls()
+    public function pagesDetails()
     {
         $pages = [];
 
         for ($i = 1; $i <= $this->pages; $i++)
         {
-            $pages["Página{$i}"] = [
+            array_push($pages, [
                 'page' => $i,
                 'current' => $i == $this->current_page
-            ];
+            ]);
         }
 
         return $pages;

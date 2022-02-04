@@ -25,8 +25,9 @@ class Web extends Controller
 
         $content = $this->twig->render('home.html.twig', [
             'posts' => $posts,
-            'pages_controls' => $paginator->pagesControls(),
-            'route' => $routeParser
+            'pages_details' => $paginator->pagesDetails(),
+            'route' => $routeParser,
+            'current_page' => $current_page
         ]);
 
         $body = $response->getBody();

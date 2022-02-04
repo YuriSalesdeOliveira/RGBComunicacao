@@ -58,6 +58,7 @@ class Helper
     {
         $allowed_types = [
             'jpeg',
+            'jpg',
             'png',
             'gif'
         ];
