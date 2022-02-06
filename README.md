@@ -17,19 +17,16 @@ docker-compose up -d
 docker-compose exec php composer install
 ```
 - Crie a pasta cache dentro da pasta source
-```bash
-mkdir source/cache
-```
 - Crie o arquivo "app.php" no diretório config usando o arquivo exemplo "app.sample.php"
 - Crie a base de dados com o nome 'rgb_comunicacao'
 ```bash
 docker-compose exec db mysql -u root -p
 ```
-- Rode as migrations com o comando abaixo
+- Rode as migrations
 ```bash
 docker-compose exec php vendor/bin/phinx migrate
 ```
-- Rode os seeds com o comando abaixo
+- Rode os seeds
 ```bash
 docker-compose exec php vendor/bin/phinx seed:run
 ```
@@ -37,6 +34,4 @@ docker-compose exec php vendor/bin/phinx seed:run
 ```bash
 docker-compose exec php chmod -R 777 ./
 ```
-- Acesse a url: http://localhost/public/
-
 Obs: Eu deixei tudo preenchido no arquivo app de exemplo para que não tenha complicação desnecessária, mas, sei que em um projeto real isso não é correto.
