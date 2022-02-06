@@ -6,7 +6,6 @@ define('SITE', [
     'domain' => '',
     'locale' => 'pt_BR',
     'root' => 'http://localhost/public',
-    'base_path' => '/public'
 ]);
 
 define('PATH', [
