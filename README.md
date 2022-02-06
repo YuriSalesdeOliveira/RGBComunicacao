@@ -24,10 +24,6 @@ mkdir source/cache
 - Crie a base de dados com o nome 'rgb_comunicacao'
 ```bash
 docker-compose exec db mysql -u root -p
-Enter password: root
-```
-```bash
-mysql> create schema rgb_comunicacao;
 ```
 - Rode as migrations com o comando abaixo
 ```bash
