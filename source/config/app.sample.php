@@ -5,7 +5,7 @@ define('SITE', [
     'description' => 'Teste tecnico',
     'domain' => '',
     'locale' => 'pt_BR',
-    'root' => 'http://localhost/public',
+    'root' => 'http://localhost',
 ]);
 
 define('PATH', [
