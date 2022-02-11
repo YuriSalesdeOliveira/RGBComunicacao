@@ -2,19 +2,32 @@
 
 namespace Source\Support;
 
+use Psr\Http\Message\UploadedFileInterface;
+
 class Helper
 {
-    public function assets(string $asset): string
+    public static function assets(string $asset): string
     {
         return SITE['root'] . "/assets/{$asset}";
     }
 
-    public function storage(string $storage)
+    public static function storage(string $storage)
     {
         return SITE['root'] . "/storage/{$storage}";
     }
 
-    public function listFiles(string $directory): array|bool
+    public static function uploadFile(string $path, UploadedFileInterface $UploadedFile): string
+    {
+        $extension = explode('/', $UploadedFile->getClientMediaType())[1];
+
+        $file = md5(uniqid()) . time() . ".{$extension}";
+
+        $UploadedFile->moveTo($path . "/{$file}");
+
+        return $file;
+    }
+
+    public static function listFiles(string $directory): array|bool
     {
         if (is_dir($directory))
         {
@@ -34,9 +47,9 @@ class Helper
         return false;
     }
 
-    public function isImage(string $directory, string $image): bool
+    public static function isImage(string $directory, string $image): bool
     {
-        if (!$this->allowedImageTypes($image)) { return false; }
+        if (!static::allowedImageTypes($image)) { return false; }
 
         $image = $directory . "/{$image}";
 
@@ -54,7 +67,7 @@ class Helper
         return false;
     }
 
-    public function allowedImageTypes(string $image): bool
+    public static function allowedImageTypes(string $image): bool
     {
         $allowed_types = [
             'jpeg',

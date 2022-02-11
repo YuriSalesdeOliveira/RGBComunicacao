@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5ceb8579e65aadfad0e631aa7fe86c55",
+    "content-hash": "8ff04664b54bbc37a924cd3a60fb3656",
     "packages": [
         {
             "name": "cakephp/core",
@@ -2849,6 +2849,47 @@
                 }
             ],
             "time": "2022-01-24T18:55:24+00:00"
+        },
+        {
+            "name": "yuri-oliveira/validate",
+            "version": "v1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/YuriSalesdeOliveira/yuri-oliveira-validate.git",
+                "reference": "bd8020ddbce1d9da83628e3715acc6250c46d3de"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/YuriSalesdeOliveira/yuri-oliveira-validate/zipball/bd8020ddbce1d9da83628e3715acc6250c46d3de",
+                "reference": "bd8020ddbce1d9da83628e3715acc6250c46d3de",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "YuriOliveira\\Validation\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Yuri Sales de Oliveira",
+                    "email": "yuri_oli@hotmail.com",
+                    "homepage": "https://www.facebook.com/profile.php?id=100052262689312"
+                }
+            ],
+            "description": "Package para fazer validação",
+            "support": {
+                "issues": "https://github.com/YuriSalesdeOliveira/yuri-oliveira-validate/issues",
+                "source": "https://github.com/YuriSalesdeOliveira/yuri-oliveira-validate/tree/v1.0.4"
+            },
+            "time": "2022-01-30T06:29:21+00:00"
         }
     ],
     "packages-dev": [],

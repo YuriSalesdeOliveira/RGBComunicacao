@@ -30,8 +30,7 @@ class Web extends Controller
             'current_page' => $current_page
         ]);
 
-        $body = $response->getBody();
-        $body->write($content);
+        $response->getBody()->write($content);
 
         return $response;
     }

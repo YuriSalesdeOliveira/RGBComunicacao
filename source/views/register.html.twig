@@ -1,0 +1,16 @@
+<form action="{{ route.urlFor('post.store') }}" method="post" enctype="multipart/form-data">
+
+    <label for="photo" class="flex items-center">
+        <img id="form-photo-preview" class="w-[70px] h-[70px] mr-5 rounded-lg cursor-pointer"
+            src="assets/images/person4.png" alt="person">
+
+        <span class="text-xs text-gray-500 uppercase cursor-pointer">change photo</span>
+    </label>
+    <input type="file" name="photo" id="photo" class="hidden">
+
+    <label for="description">Descrição</label>
+    <input type="text" name="description" placeholder="Enter your name...">
+
+    <button type="submit">Cadastrar</button>
+
+</form>

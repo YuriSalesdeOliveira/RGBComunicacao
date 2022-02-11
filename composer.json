@@ -31,6 +31,7 @@
         "twig/twig": "^3.3",
         "illuminate/database": "v8.82.0",
         "laminas/laminas-diactoros": "^2.8",
-        "robmorgan/phinx": "^0.12.10"
+        "robmorgan/phinx": "^0.12.10",
+        "yuri-oliveira/validate": "^1.0"
     }
 }

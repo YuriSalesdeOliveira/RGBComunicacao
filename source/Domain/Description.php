@@ -1,6 +1,6 @@
 <?php
 
-namespace Source\Domain\Classes;
+namespace Source\Domain;
 
 use Exception;
 
