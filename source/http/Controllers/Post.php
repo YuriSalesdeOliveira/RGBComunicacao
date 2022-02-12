@@ -3,14 +3,15 @@
 namespace Source\http\Controllers;
 
 use Source\Domain\Photo;
+use Source\Support\Helper;
 use Slim\Routing\RouteContext;
 use Source\Domain\Description;
-use Source\Support\Uploader\Image;
+use Laminas\Diactoros\UploadedFile;
 use Source\Models\Post as ModelsPost;
 use YuriOliveira\Validation\Validate;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
-use Source\Support\Helper;
+use YuriOliveira\Validation\Message\Message;
 
 class Post extends Controller
 {
@@ -45,11 +46,22 @@ class Post extends Controller
         $routeContext = RouteContext::fromRequest($request);
         $routeParser = $routeContext->getRouteParser();
 
-        $data = $request->getParsedBody() + $request->getUploadedFiles();
+        Validate::extend('photo', function(string $key, UploadedFile $uploadedFile){
 
+            if ($uploadedFile->getSize() === 0)
+            {
+                return Message::get('required', $key);
+            }
+            
+            return true;
+        });
+
+        $data = $request->getParsedBody() + $request->getUploadedFiles();
+        
         $validate =  new Validate($data);
 
         $validate->validate([
+            'photo' => ['photo'],
             'description' => ['required']
         ]);
 
@@ -61,7 +73,7 @@ class Post extends Controller
                 ->withHeader('Location', $routeParser->urlFor('post.create'))
                 ->withStatus(303);
         }
-
+        return $response;
         $uploadedPhoto = Helper::uploadFile(PATH['storage'] . '/images', $data['photo']);
 
         $post = new ModelsPost();
