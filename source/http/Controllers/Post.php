@@ -2,16 +2,16 @@
 
 namespace Source\http\Controllers;
 
-use Source\Domain\Photo;
 use Source\Support\Helper;
 use Slim\Routing\RouteContext;
-use Source\Domain\Description;
+use Source\ValueObjects\Photo;
 use Laminas\Diactoros\UploadedFile;
+use Source\ValueObjects\Description;
 use Source\Models\Post as ModelsPost;
 use YuriOliveira\Validation\Validate;
+use YuriOliveira\Validation\Message\Message;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
-use YuriOliveira\Validation\Message\Message;
 
 class Post extends Controller
 {
@@ -73,7 +73,7 @@ class Post extends Controller
                 ->withHeader('Location', $routeParser->urlFor('post.create'))
                 ->withStatus(303);
         }
-        return $response;
+        
         $uploadedPhoto = Helper::uploadFile(PATH['storage'] . '/images', $data['photo']);
 
         $post = new ModelsPost();
