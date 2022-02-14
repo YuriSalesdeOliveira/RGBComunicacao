@@ -35,3 +35,5 @@ docker-compose exec php vendor/bin/phinx seed:run
 docker-compose exec php chmod -R 777 ./
 ```
 - Para gerenciar as postagens acesse "/postagens/listar"
+
+Obs: Eu deixei tudo preenchido no arquivo app de exemplo para que não tenha complicação desnecessária, mas, sei que em um projeto real isso não é correto.
