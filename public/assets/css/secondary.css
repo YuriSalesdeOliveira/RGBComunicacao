@@ -5,18 +5,51 @@
 }
 
 html {
-    width: 100vw;
-    height: 100vh;
+    max-width: 100vw;
+    min-height: 100vh;
     display: flex;
 }
 
 body {
-    width: 100vw;
+    max-width: 100vw;
     min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button.btn{
+    font-size: 1rem;
+    border: none;
+}
+
+.btn
+{
     display: flex;
     justify-content: center;
-    flex-direction: column;
     align-items: center;
+    cursor: pointer;
+    padding: 5px 30px;
+    border-radius: 3px;
+}
+
+.btn.lg
+{
+    font-size: 1.2rem;
+}
+
+.btn.primary
+{
+    color: #ffffff;
+    background-color: #497957;
+}
+
+.btn.danger
+{
+    color: #ffffff;
+    background-color: #7c001f;
 }
 
 .hidden {
@@ -28,9 +61,18 @@ body {
     margin-top: 20px;
 }
 
-.label[for="photo"]
+.mb-5
 {
-    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.mb-10
+{
+    margin-bottom: 10px;
+}
+
+.img_container
+{
     width: 350px;
     height: 150px;
     display: flex;
@@ -38,6 +80,11 @@ body {
     align-items: center;
     overflow: hidden;
     border-radius: 5px;
+}
+
+.label[for="photo"]
+{
+    cursor: pointer;
 }
 
 .form
@@ -58,5 +105,72 @@ body {
     height: 30px;
 }
 
+.list {
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px 0;
+}
+
+.list li
+{
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.list li:hover
+{
+    box-shadow: 0px 10px 30px rgb(51 51 51 / 10%)
+}
+
+.list li a {
+    display: flex;
+}
+
+.list li a div.img
+{
+    width: 170px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.list li a div.description
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px 0;
+}
+
+.list li a div.description span
+{
+    font-size: .8rem;
+}
+
+div.post
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.post > div
+{
+    margin-bottom: 10px;
+}
+
+div.post > p,
+div.post > a
+{
+    margin-bottom: 5px;
+}
+
 .message_success { color: green; }
+.message_warning { color: brown; }
 .message_error { color: red; }

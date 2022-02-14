@@ -1,0 +1,30 @@
+{% extends "template/secondaryLayout.html.twig" %}
+
+{% block content %}
+
+    <div class="post">
+
+        <div class="img_container">
+            <img src="{{ helper.storage("/images/#{post.photo ?? 'default-image.png'}") }}" alt="">
+        </div>
+
+        <p>
+            {{ post.description }}
+        </p>
+
+        <a href="{{ route.urlFor('post.posts') }}" class="btn primary">voltar</a>
+
+        <a href="{{ route.urlFor('post.edit', {'post': post.id}) }}" class="btn primary">editar</a>
+        
+        <form action="{{ route.urlFor('post.destroy') }}" method="post">
+
+            <input type="hidden" name="id" value="{{ post.id }}">
+            <input type="hidden" name="_METHOD" value="DELETE">
+
+            <button type="submit" class="btn danger">deletar</button>
+
+        </form>
+
+    </div>
+    
+{% endblock content %}

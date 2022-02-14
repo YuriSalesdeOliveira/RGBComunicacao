@@ -1,0 +1,24 @@
+{% extends "template/secondaryLayout.html.twig" %}
+
+{% block content %}
+
+    <a href="{{ route.urlFor('post.create') }}" class="btn primary lg">Criar postagem</a>
+    <div class="message_success mt-20">{{ flash.get('success', 'posts') }}</div>
+    <div class="message_error mt-20">{{ flash.get('error', 'posts') }}</div>
+
+    <ul class="list">
+        {% for post in posts %}
+            <li>
+                <a href="{{ route.urlFor('post.show', {'post': post.id}) }}">
+                    <div class="img">
+                        <img src="{{ helper.storage("images/#{post.photo ?? 'default-image.png'}") }}">
+                    </div>
+                    <div class="description">
+                        {{ post.description }}
+                        <span>{{ post.created_at.format('d-m-Y H:i:s') }}</span>
+                    </div>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

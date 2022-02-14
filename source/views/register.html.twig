@@ -5,7 +5,7 @@
 
         <div class="message_success">{{ flash.get('success', 'register') }}</div>
 
-        <label for="photo" class="label">
+        <label for="photo" class="label img_container">
             <img id="form-photo-preview" src="{{ helper.storage('images/default-image.png') }}" alt="person">
         </label>
         <input type="file" name="photo" id="photo" class="hidden">
@@ -18,8 +18,8 @@
         
         <div class="message_error">{{ flash.get('error', 'description') }}</div>
         
-
-        <button type="submit" class="button_submit mt-20">Cadastrar</button>
+        <button type="submit" class="button_submit mt-20 mb-5">Cadastrar</button>
+        <a href="{{ route.urlFor('post.posts') }}" class="btn primary">Voltar</a>
 
     </form>
 {% endblock content %}

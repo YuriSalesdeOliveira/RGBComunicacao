@@ -16,6 +16,8 @@ class PostSeeder extends AbstractSeed
         {
             if ((new Helper)->isImage(PATH['storage'] . '/images', $image))
             {
+                if ($image === 'default-image.png') { continue; }
+
                 array_push($data, [
                     'photo' => $image,
                     'description' => 'Nome do Álbum Lorem Ipsum Dolor Amed'

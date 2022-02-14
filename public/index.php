@@ -17,6 +17,7 @@ $app->add(new MethodOverrideMiddleware);
 $app->get('/', [Web::class, 'home'])->setName('web.home');
 $app->get('/{page}', [Web::class, 'home'])->setName('web.home.arg');
 
+$app->get('/postagens/listar', [Post::class, 'posts'])->setName('post.posts');
 $app->get('/postagens/{post}/mostrar', [Post::class, 'show'])->setName('post.show');
 
 $app->get('/postagens/criar', [Post::class, 'create'])->setName('post.create');

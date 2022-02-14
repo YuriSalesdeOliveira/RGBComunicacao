@@ -9,7 +9,7 @@
         <input type="hidden" name="id" value="{{ post.id ?? '0' }}">
         <input type="hidden" name="_METHOD" value="PUT"/>
 
-        <label for="photo" class="label">
+        <label for="photo" class="label img_container">
             <img id="form-photo-preview"
                 src="{{ helper.storage("images/#{post.photo ?? 'default-image.png'}") }}" alt="person">
         </label>
@@ -19,11 +19,12 @@
 
         <label for="description" class="mt-20">Descrição</label>
         <textarea name="description" cols="30" rows="10" placeholder="Enter description..."
-            class="textarea"></textarea>
+            class="textarea">{{ post.description ?? null }}</textarea>
         
         <div class="message_error">{{ flash.get('error', 'description') }}</div>
 
-        <button type="submit" class="button_submit mt-20">Atualizar</button>
+        <button type="submit" class="button_submit mt-20 mb-5">Atualizar</button>
+        <a href="{{ route.urlFor('post.show', {'post': post.id ?? '0'}) }}" class="btn primary">Voltar</a>
 
     </form>
 {% endblock content %}

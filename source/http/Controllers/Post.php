@@ -16,12 +16,34 @@ class Post extends Controller
 {
     public function posts(Request $request, Response $response)
     {
-        
+        $routeContext = RouteContext::fromRequest($request);
+        $routeParser = $routeContext->getRouteParser();
+
+        $posts = ModelsPost::all();
+
+        $content = $this->twig->render('posts.html.twig', [
+            'route' => $routeParser,
+            'posts' => $posts
+        ]);
+
+        $response->getBody()->write($content);
+
+        return $response;
     }
 
     public function show(Request $request, Response $response, array $args)
     {
-        $response->getBody()->write($args['post']);
+        $routeContext = RouteContext::fromRequest($request);
+        $routeParser = $routeContext->getRouteParser();
+
+        $post = ModelsPost::find($args['post']);
+
+        $content = $this->twig->render('post.html.twig', [
+            'route' => $routeParser,
+            'post' => $post
+        ]);
+
+        $response->getBody()->write($content);
 
         return $response;
     }
@@ -114,7 +136,7 @@ class Post extends Controller
         if ($errors = $validate->errors())
         {
             Flash::add($errors);
-            print_r($data['id']);
+            
             return $response
                 ->withHeader('Location', $routeParser->urlFor('post.edit', ['post' => $data['id']]))
                 ->withStatus(303);
@@ -155,11 +177,17 @@ class Post extends Controller
         $data = $request->getParsedBody();
 
         $post = ModelsPost::find($data['id']);
-        $post->delete();
+
+        if ($post)
+        {
+            $post->delete();
+
+            Flash::add(['posts' => 'Postagem deletada.'], 'success');
+
+        } else { Flash::add(['posts' => 'Postagem não foi encontrada.']); }
 
         return $response
-            ->withHeader('Location',
-                $routeParser->urlFor('post.show'), ['post' => $data['id']])
+            ->withHeader('Location', $routeParser->urlFor('post.posts'))
             ->withStatus(303);
     }
 }
