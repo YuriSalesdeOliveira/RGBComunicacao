@@ -12,8 +12,6 @@ class Web extends Controller
 {
     public function home(Request $request, Response $response, array $args)
     {
-        $args = filter_var_array($args, FILTER_SANITIZE_STRIPPED);
-
         $current_page = empty($args['page']) ? 1 : $args['page'];
 
         $paginator = new Paginator(Post::count(), 20, $current_page);

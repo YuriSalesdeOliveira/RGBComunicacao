@@ -2,6 +2,7 @@
 
 namespace Source\http\Controllers;
 
+use Source\Support\Flash;
 use Twig\Environment;
 use Source\Support\Helper;
 use Twig\Loader\FilesystemLoader;
@@ -19,6 +20,7 @@ abstract class Controller
         ]);
 
         $this->twig->addGlobal('helper', new Helper);
+        $this->twig->addGlobal('flash', new Flash);
 
     }
 }
